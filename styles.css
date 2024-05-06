@@ -1,0 +1,132 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    background-size: cover;
+    color: #ffffff;
+    position: relative; /* Establishes a positioning context for absolute positioning */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.8); /* Can adjust transparency if needed */
+    z-index: 1000;
+}
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+    padding: 10px; /* Added padding for a larger clickable area */
+}
+
+.title {
+    text-align: center;
+    flex-grow: 1; /* Allows the title to take up any remaining space */
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default, shown on click */
+    position: absolute;
+    background-color: #a5a2a3; /* Light background for the dropdown */
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 0;
+    border-radius: 5px; /* Rounded corners for aesthetics */
+    top: 100px;
+    left: 0px;
+    z-index: 1005;
+}
+.dropdown-content a {
+    color: black; /* Dark text for readability */
+    padding: 12px 16px; /* Adequate padding for touch targets */
+    text-decoration: none; /* No underline */
+    display: block; /* Makes the links take up the full width of the dropdown */
+    font-size: 16px; /* Larger font size for readability */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Light grey background on hover for interactivity */
+}
+.title {
+    text-align: center;
+    flex-grow: 1;
+}
+.container {
+    position: absolute; /* This makes it a reference for absolutely positioned child elements */
+    padding: 30px;
+    top: 25%;
+    left: 32%;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background for better contrast */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 70%;
+    max-width: 700px;
+    text-align: center;
+    margin-top: 60px; /* Adjust if necessary */
+    color: #ffffff; /* Default text color changed to white for all text inside */
+}
+.overlay-text {
+    position: absolute; /* Positioned absolutely relative to the nearest positioned ancestor */
+    top: 10px; /* Distance from the top of the container */
+    left: 10px; /* Distance from the left of the container */
+    width: 95%; /* Takes up most of the container width */
+    color: #ffffff; /* White color for visibility */
+    font-size: 18px; /* Larger font size for readability */
+    z-index: 10; /* Ensures it's on top */
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 500;
+}
+
+.social-media {
+    padding: 5px;
+    font-size: 24px;
+    color: white;
+}
+
+input[type="file"], button {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #0056b3;
+    font-size: 16px;
+    cursor: pointer;
+    border: 2px solid #007bff;
+}
+
+input[type="file"]:hover, button:hover {
+    background-color: #e1efff;
+    border-color: #0056b3;
+}
+
+#ocrResults {
+    font-size: 16px;
+    background-color: #f8f8f8;
+    color: #222;
+    padding: 20px;
+    border-radius: 5px;
+    min-height: 50px; /* Ensure enough space for multiline results */
+}

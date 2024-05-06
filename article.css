@@ -1,0 +1,68 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #121212; /* Dark background */
+    color: #ccc; /* Light text for contrast */
+}
+
+header {
+    background-color: black;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 auto;
+    width: 100%;
+}
+
+nav {
+    display: flex; /* Flexbox for center alignment */
+    justify-content: center; /* Centers content horizontally */
+    margin-top: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px; /* Adjusted for better spacing */
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.article {
+    background: #333;
+    margin: 40px auto; /* Increased top margin for spacing */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    width: 80%;
+    max-width: 600px;
+    overflow: hidden; /* Ensures no overflow from code blocks */
+}
+
+pre, code {
+    background: #282c34; /* Dark background specific for code */
+    color: #abb2bf; /* Soft light blue for code text */
+    padding: 10px;
+    overflow-x: auto; /* Allows horizontal scrolling for long lines */
+    display: block;
+    white-space: pre-wrap; /* Maintains whitespace formatting */
+    word-wrap: break-word; /* Breaks long lines for better readability */
+    border-radius: 5px; /* Rounded corners for code blocks */
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

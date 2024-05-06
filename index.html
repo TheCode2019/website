@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Manhattan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <h1 class="title">Page statique d'OCR simple projet Manhattan</h1>
+        <nav class="dropdown-content" id="dropdownMenu">
+            <a href="main.html">Home</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="intro">
+            <p>Ici, vous pourrez upload une image et le modèle python vous retournera une prédiction (disclaimer, il s'agit d'une version alpha, pouvant seulement prédire un seul caractère avec 84% de précision)</p>
+        </section>
+        <section class="upload-form">
+            <label for="imageInput">Upload Image:</label>
+            <input type="file" id="imageInput" accept="image/*">
+            <button onclick="sendImage()">Extraction du texte</button>
+        </section>
+        <section id="ocrResults">Ici, votre résultat après traitement de l'image...</section>
+    </main>
+    <footer>
+        <a href="https://github.com/TheCode2019" class="social-media"><i class="fab fa-github"></i></a>
+        <a href="https://www.youtube.com/channel/UCy54yKQcGymXYW2eY2FK_Gw" class="social-media"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/in/yassinemm/" class="social-media"><i class="fab fa-linkedin"></i></a>
+        <p>© 2024 Yassine Mahroug. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
