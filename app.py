@@ -6,7 +6,7 @@ from PIL import Image
 from ocr import Enhanced_OCR_CNN  # Make sure this import points to your model's definition
 import string
 import os
-app = app = Flask(__name__, static_folder=r'C:\Users\yassi\Desktop\website-1\static')
+app = Flask(__name__, static_folder='static')
 CORS(app)  # Enable CORS if your frontend is served from a different origin
 
 @app.route('/')
