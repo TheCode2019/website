@@ -1,13 +1,18 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, redirect, url_for
 from flask_cors import CORS
 import torch
 from torchvision import transforms
 from PIL import Image
 from ocr import Enhanced_OCR_CNN  # Make sure this import points to your model's definition
 import string
-
-app = Flask(__name__)
+import os
+app = app = Flask(__name__, static_folder=r'C:\Users\yassi\Desktop\website-1\static')
 CORS(app)  # Enable CORS if your frontend is served from a different origin
+
+@app.route('/')
+def home():
+    # Make sure the path is correct
+    return redirect(url_for('static', filename='main.html'))
 
 # Load your trained model
 model = Enhanced_OCR_CNN()
@@ -57,4 +62,5 @@ def upload_file():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
