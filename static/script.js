@@ -12,13 +12,14 @@ function sendImage() {
 
     resultsDiv.innerHTML = 'Processing...';
 
-    fetch('http://localhost:5000/upload', { // Change this URL to match your deployed server's URL if necessary
+    // Update the URL to point to your Google Cloud Run app
+    fetch('https://test-wpek6upsvq-nw.a.run.app/upload', {
         method: 'POST',
         body: formData
     })
     .then(response => response.json())
     .then(data => {
-        if(data.error) {
+        if (data.error) {
             resultsDiv.innerHTML = 'Error: ' + data.error;
         } else {
             resultsDiv.innerHTML = 'OCR Results: ' + data.text;
@@ -29,6 +30,7 @@ function sendImage() {
         resultsDiv.innerHTML = 'Failed to retrieve OCR results.';
     });
 }
+
 function toggleMenu() {
     var menu = document.getElementById('dropdownMenu');
     if (menu.style.display === 'block') {
