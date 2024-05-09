@@ -63,10 +63,10 @@ def upload_file():
         app.logger.error(f"Error processing the image: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
-#client = google_logging.Client()
-#client.setup_logging()
+client = google_logging.Client()
+client.setup_logging()
 
-#logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO)
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
