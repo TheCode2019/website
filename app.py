@@ -3,13 +3,20 @@ from flask_cors import CORS
 import torch
 from torchvision import transforms
 from PIL import Image
-from ocr import Enhanced_OCR_CNN  # Make sure this import points to your model's definition
+from ocr import Enhanced_OCR_CNN  
 import string
 import os
-import logging
-from google.cloud import logging as google_logging
+
+
+allowed_origins = [
+    'https://test-wpek6upsvq-nw.a.run.app/',
+    'https://randklav.web.app',
+    'https://https://neoquid.web.app/',
+    'http://localhost:5000'  # Obviously let localhost live
+]
+
 app = Flask(__name__, static_folder='static')
-CORS(app, resources={r"/upload": {"origins": "https://test-wpek6upsvq-nw.a.run.app/"}})
+CORS(app, resources={r"/upload": {"origins": allowed_origins}}) #this will let my silly little domains get access to the API 
 
 @app.route('/')
 def home():
@@ -63,10 +70,7 @@ def upload_file():
         app.logger.error(f"Error processing the image: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
-client = google_logging.Client()
-client.setup_logging()
 
-logging.basicConfig(level=logging.INFO)
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
