@@ -1,3 +1,18 @@
+function getApiBaseUrl() {
+    const hostname = window.location.hostname;
+
+    // Define URLs based on the hostname
+    if (hostname === "localhost" || hostname === "127.0.0.1") {
+        return "http://localhost:5000"; // Local development 
+    } else if (hostname === "test-wpek6upsvq-nw.a.run.app") {
+        return "https://test-wpek6upsvq-nw.a.run.app/"; // Production backend URL (i will break it one day)
+    } else if (hostname === "neoquid.web.app") {
+        return "https://https://neoquid.web.app/"; // this is the one
+    }
+    // Default to production if no match
+    return "https://https://neoquid.web.app/"; 
+}
+
 function sendImage() {
     const imageInput = document.getElementById('imageInput');
     const resultsDiv = document.getElementById('ocrResults');
@@ -9,11 +24,12 @@ function sendImage() {
 
     const formData = new FormData();
     formData.append('file', imageInput.files[0]);
+    const apiUrl = getApiBaseUrl();
 
     resultsDiv.innerHTML = 'Processing...';
 
-    // Update the URL to point to your Google Cloud Run app
-    fetch('https://test-wpek6upsvq-nw.a.run.app/upload', {
+    // Append the specific endpoint to the base URL
+    fetch(`${apiUrl}/upload`, {
         method: 'POST',
         body: formData
     })
@@ -39,5 +55,3 @@ function toggleMenu() {
         menu.style.display = 'block';
     }
 }
-
-
